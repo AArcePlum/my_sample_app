@@ -10,7 +10,7 @@ class ActiveSupport::TestCase
   parallelize(workers: :number_of_processors)
   
   # Set up all fixtures in test/fixtures/*.yml. 
-  fixtures :all
-  
+  fixtures :all  
+  include ApplicationHelper
   # Add more helper methods to be used by all tests here... 
 end
