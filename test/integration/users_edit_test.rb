@@ -35,5 +35,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal name, @user.name
     assert_equal email, @user.email
+    log_in_as(@user)                                  #
+    assert_redirected_to user_url(@user)              #otra forma
   end
 end
