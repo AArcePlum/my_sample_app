@@ -29,7 +29,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               email: email,
                                               password: "",
                                               password_confirmation: "" } }
-    assert_equal session[:forwarding_url], nil                                # VER SI ESTA BIEN. PAG 604
+    assert_nil session[:forwarding_url]                                       # VER SI ESTA BIEN. PAG 604
     assert_not flash.empty?
     assert_redirected_to @user
     @user.reload
