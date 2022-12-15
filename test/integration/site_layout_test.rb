@@ -34,7 +34,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", contact_path
-    assert_select "a[href=?]", signup_path
 
     # Cuando estoy logeado puedo acceder a users_path
     get users_path
