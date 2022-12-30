@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <%= render 'static_pages/microposts' %>
+  <%= render 'static_pages/microposts', :micropost => @micropost %>
 <% else %>
   <%= render 'static_pages/welcome' %>
 <% end %>

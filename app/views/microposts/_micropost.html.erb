@@ -13,5 +13,20 @@
 			<%= link_to "delete", micropost, data: { "turbo-method": :delete,
 																							turbo_confirm: "You sure?" } %>
 		<% end %>
+		<span><%= pluralize(micropost.likes.count, "like") %></span>
+	</span>
+	<span class="like">
+		<% if micropost.liked?(current_user) %>
+			<%= form_with(model: micropost.likes.find_by(user_id: current_user),
+										html: { method: :delete }) do |f| %>
+				<div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+				<%= f.submit "Unlike", class: "btn" %>
+			<% end %>
+		<% else %>
+			<%= form_with(model: micropost.likes.build) do |f| %>
+				<div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+				<%= f.submit "Like", class: "btn btn-primary" %>
+			<% end %>
+		<% end %>
 	</span>
 </li>
